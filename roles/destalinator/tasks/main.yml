@@ -1,0 +1,23 @@
+---
+  - name: clone Destalinator source
+    git:
+      repo: https://github.com/randsleadershipslack/destalinator.git
+      dest: "{{ destalinator_dir }}"
+
+  - name: build Destalinator Docker image
+    docker_image:
+      path: "{{ destalinator_dir }}"
+      name: destalinator
+
+  - name: run Destalinator Docker container
+    docker_container:
+      name: Destalinator
+      image: destalinator
+      restart_policy: always
+      env:
+        DESTALINATOR_SLACK_NAME: "{{ slack_name }}"
+        DESTALINATOR_GENERAL_MESSAGE_CHANNEL: "{{ general_message_channel }}"
+        DESTALINATOR_SB_TOKEN: "{{ sb_token }}"
+        DESTALINATOR_API_TOKEN: "{{ api_token }}"
+        DESTALINATOR_LOG_TO_CHANNEL: "{{ log_to_channel }}"
+        DESTALINATOR_SCHEDULE_HOUR: "{{ schedule_hour }}"

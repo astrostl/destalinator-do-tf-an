@@ -1,0 +1,8 @@
+---
+- hosts: destalinator
+  remote_user: root
+
+  roles:
+    - ubuntu
+    - docker
+    - destalinator
