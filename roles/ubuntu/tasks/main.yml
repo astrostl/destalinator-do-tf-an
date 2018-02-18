@@ -18,4 +18,4 @@
       name: autoremove
       minute: 30
       hour: 0
-      job: /usr/bin/apt autoremove
+      job: /usr/bin/apt-get -y autoremove
