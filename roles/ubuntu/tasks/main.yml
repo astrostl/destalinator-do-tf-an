@@ -4,18 +4,18 @@
       name: update
       minute: 0
       hour: 0
-      job: /usr/bin/apt-get update
+      job: /usr/bin/apt-get update &> /var/log/aptup.log
 
   - name: update all packages errday
     cron:
       name: upgrade
       minute: 15
       hour: 0
-      job: /usr/bin/apt-get -y dist-upgrade
+      job: /usr/bin/apt-get -y dist-upgrade &> /var/log/aptdist.log
 
   - name: remove dead deps errday
     cron:
       name: autoremove
       minute: 30
       hour: 0
-      job: /usr/bin/apt-get -y autoremove
+      job: /usr/bin/apt-get -y autoremove &> /var/log/aptrm.log
