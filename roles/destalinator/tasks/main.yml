@@ -15,13 +15,11 @@
       image: destalinator
       restart_policy: always
       env:
-        # DESTALINATOR_RUN_ONCE: "true"
-        DESTALINATOR_ACTIVATED: "true"
+        DESTALINATOR_SLACK_NAME: "{{ d_slack_name }}"
+        DESTALINATOR_ACTIVATED: "{{ d_activated }}"
         DESTALINATOR_SB_TOKEN: "{{ d_sb_token }}"
         DESTALINATOR_API_TOKEN: "{{ d_api_token }}"
         DESTALINATOR_LOG_LEVEL: "{{ d_log_level }}"
-        DESTALINATOR_LOG_TO_CHANNEL: "{{ d_log_to_channel }}"
-        DESTALINATOR_SLACK_NAME: "{{ d_slack_name }}"
         DESTALINATOR_BOT_NAME: "{{ d_bot_name }}"
         DESTALINATOR_BOT_AVATAR_URL: "{{ d_bot_avatar_url }}"
         DESTALINATOR_WARN_THRESHOLD: "{{ d_warn_threshold }}"
